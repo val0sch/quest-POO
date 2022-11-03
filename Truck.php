@@ -3,15 +3,13 @@ require_once "Vehicle.php";
 
 class Truck extends Vehicle
 {
-    private int $volume;
+    protected int $volume;
+    protected int $loading = 0;
 
-    private int $loading = 0;
-
-    public function __construct(string $color, int $nbSeats, int $volume, int $loading)
+    public function __construct(string $color, int $nbSeats, int $volume)
     {
         parent::__construct($color, $nbSeats);
         $this->volume = $volume;
-        $this->loading = $loading;
     }
 
     public function getVolume(): int

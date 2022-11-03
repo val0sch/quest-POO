@@ -1,16 +1,12 @@
 <?php
 
-abstract class Vehicle
+class Vehicle
 {
-
-    protected string $color;
     // Le mot clé private rend inaccessible l'utilisation d'une propriété
     // ou d’une méthode dans une classe fille. On le remplace donc par protected.
-
+    protected string $color;
     protected int $currentSpeed = 0;
-
     protected int $nbSeats;
-
     protected int $nbWheels;
 
     public function __construct(string $color, int $nbSeats)

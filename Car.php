@@ -9,11 +9,9 @@ class Car extends Vehicle
         'fuel',
         'electric',
     ];
+    protected string $energy;
+    protected int $energyLevel;
 
-
-    private string $energy;
-
-    private int $energyLevel;
 
     public function __construct(string $color, int $nbSeats, string $energy)
     {
@@ -26,9 +24,12 @@ class Car extends Vehicle
         return $this->energy;
     }
 
-    public function setEnergy(string $energy): void
+    public function setEnergy(string $energy): Car
     {
-        $this->energy = $energy;
+        if (in_array($energy, self::ALLOWED_ENERGIES)) {
+            $this->energy = $energy;
+        }
+        return $this;
     }
 
     public function getEnergyLevel(): int

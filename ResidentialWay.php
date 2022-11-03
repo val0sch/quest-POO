@@ -3,9 +3,14 @@ require_once 'HighWay.php';
 
 final class ResidentialWay extends HighWay
 {
-    public function addVehicle($vehicule)
+    protected $nbLane = 2;
+    protected $maxSpeed = 50;
+
+    public function addVehicle(Vehicle $vehicle)
     {
-        echo "All types of vehicules allowed <br>";
-        $this->setCurrentVehicles($vehicule);
+
+        if ($vehicle instanceof Car || $vehicle instanceof Truck || $vehicle instanceof Bicycle) {
+            $this->setCurrentVehicles($vehicle);
+        }
     }
 }

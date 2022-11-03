@@ -1,18 +1,20 @@
 <?php
 
+require_once 'Vehicle.php';
+require_once 'Car.php';
+require_once 'Bicycle.php';
+require_once 'Truck.php';
 
 abstract class HighWay
 {
 
-    private array $currentVehicles;
-    private int $nbLane;
-    private int $maxSpeed;
+    protected array $currentVehicles;
+    protected int $nbLane;
+    protected int $maxSpeed;
 
-    public function __construct(int $nbLane, int $maxSpeed)
-    {
-        $this->nbLane = $nbLane;
-        $this->maxSpeed =  $maxSpeed;
-    }
+
+    //methods
+    abstract protected function addVehicle(Vehicle $vehicle);
 
     public function getCurrentVehicles(): array
     {
@@ -36,7 +38,6 @@ abstract class HighWay
     }
 
 
-
     public function getMaxSpeed(): int
     {
         return $this->maxSpeed;
@@ -46,10 +47,4 @@ abstract class HighWay
     {
         $this->maxSpeed = $maxSpeed;
     }
-
-    abstract protected function addVehicle($vehicle);
 }
-
-// MotorWay (4 voies, 130km/h),
-// PedestrianWay (1 voie, 10km/h)et
-// ResidentialWay (2 voies, 50km/h).
